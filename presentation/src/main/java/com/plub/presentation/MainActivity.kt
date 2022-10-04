@@ -1,15 +1,18 @@
 package com.plub.presentation
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.databinding.DataBindingUtil.setContentView
 
-class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(R.layout.activity_main) {
+import com.plub.presentation.ui.sample.SampleActivity
+import dagger.hilt.android.AndroidEntryPoint
 
-    override val viewModel : MainViewModel by viewModels()
-
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        startActivity(Intent(this, SampleActivity::class.java))
     }
 }
